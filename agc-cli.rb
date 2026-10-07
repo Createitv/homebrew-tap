@@ -5,21 +5,21 @@
 class AgcCli < Formula
   desc "AppGallery Connect command center"
   homepage "https://github.com/Createitv/agc-cli"
-  version "0.1.0"
+  version "0.2.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/Createitv/agc-cli/releases/download/v0.1.0/agc-cli_0.1.0_darwin_amd64.tar.gz"
-      sha256 "724c03182d08bb9bb8b3a4ae2a79b7239e4fbbb2f159f947f536051fdff823ca"
+      url "https://github.com/Createitv/agc-cli/releases/download/v0.2.0/agc-cli_0.2.0_darwin_amd64.tar.gz"
+      sha256 "62ab59c87a05f97254e82aa97d43d21e4aaf0d64b893ab236d5cdd11c0d7775a"
 
       define_method(:install) do
         bin.install "agc"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/Createitv/agc-cli/releases/download/v0.1.0/agc-cli_0.1.0_darwin_arm64.tar.gz"
-      sha256 "342fec7432a4e1913d3b425fb941108194445f921704449446232b0858b0f5e1"
+      url "https://github.com/Createitv/agc-cli/releases/download/v0.2.0/agc-cli_0.2.0_darwin_arm64.tar.gz"
+      sha256 "d2a56d4a659da652d942d811206072cb158e83b877b7a35e2d11cc21861d1093"
 
       define_method(:install) do
         bin.install "agc"
@@ -29,18 +29,22 @@ class AgcCli < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/Createitv/agc-cli/releases/download/v0.1.0/agc-cli_0.1.0_linux_amd64.tar.gz"
-      sha256 "65b537d8913a7072ae0dfded0e2a196adde8a239bc248ae752d5a16b3ced350c"
+      url "https://github.com/Createitv/agc-cli/releases/download/v0.2.0/agc-cli_0.2.0_linux_amd64.tar.gz"
+      sha256 "ac1d7e8f7a34980d4f60e40290b2b10e8aefd0d8763ca8ad3b0d3380a8ed33d1"
       define_method(:install) do
         bin.install "agc"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/Createitv/agc-cli/releases/download/v0.1.0/agc-cli_0.1.0_linux_arm64.tar.gz"
-      sha256 "0af553146e367124ef94fe84d841579426cd37e1ecdf544ca30fe82ad8878ba8"
+      url "https://github.com/Createitv/agc-cli/releases/download/v0.2.0/agc-cli_0.2.0_linux_arm64.tar.gz"
+      sha256 "34cd97a9b6da1add7a3ea52e3953d65c38a9ed3c5e895e55e33ae051c48b3d5d"
       define_method(:install) do
         bin.install "agc"
       end
     end
+  end
+
+  test do
+    system "#{bin}/agc", "version"
   end
 end
